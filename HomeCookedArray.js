@@ -23,19 +23,22 @@ class HomeCookedArray {
   // Merge two or more arrays into one array
   concat(firstArray, ...moreArrays) {
     // Make a copy of the array's data and merge with the first array passed in
-    let copyArray = [...this.data];
-    copyArray = [...copyArray, ...firstArray];
+    let newArray = [...this.data];
+    newArray = [...newArray, ...firstArray];
 
     // If more than one array is passed in, merge each of those as well
     if (moreArrays) {
       for (let i = 0; i < moreArrays.length; i++) {
-        copyArray = [...copyArray, ...moreArrays[i]];
+        newArray = [...newArray, ...moreArrays[i]];
       }
     }
 
     // Assign the changed copy to the array's data property
-    this.data = copyArray;
-    return this.data;
+    // this.data = newArray;
+    // return this.data;
+
+    // Return the changed copy, original array's this.data should not change
+    return newArray;
   }
 
   // Check if the passed in element is in this.data
@@ -64,14 +67,15 @@ class HomeCookedArray {
 /* ----- Testing -----  */
 
 const testArray = new HomeCookedArray(["test", "this"], 4);
-console.log(testArray);
+console.log("Creation test", testArray);
 testArray.push("another");
-console.log(testArray);
+console.log("Push test", testArray);
 testArray.pop();
-console.log(testArray);
-testArray.concat(
+console.log("Pop test", testArray);
+const anotherTestArray = testArray.concat(
   ["testArray1"],
   ["testArray2.1", "testArray2.2"],
   ["testArray3"]
 );
-console.log(testArray.includes("this"));
+console.log("Concat test", "Original", testArray, "Catted", anotherTestArray);
+console.log("Includes test", testArray.includes("this"));
