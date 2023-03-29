@@ -33,10 +33,6 @@ class HomeCookedArray {
       }
     }
 
-    // Assign the changed copy to the array's data property
-    // this.data = newArray;
-    // return this.data;
-
     // Return the changed copy, original array's this.data should not change
     return newArray;
   }
