@@ -37,12 +37,34 @@ class HomeCookedArray {
     return newArray;
   }
 
+  // Run a callback function on each element of the array
+  // Returns undefined
+  forEach(callBackFn) {
+    for (let i = 0; i < this.data.length - 1; i++) {
+      callBackFn(this.data[i]);
+    }
+  }
+
   // Check if the passed in element is in this.data
   includes(element) {
     for (let i = 0; i < this.data.length - 1; i++) {
       if (this.data[i] == element) return true;
     }
     return false;
+  }
+
+  // Run a callback function on each element of the array
+  // Returns a copy of the original array that's been mapped
+  map(callBackFn) {
+    // Make a copy of the array's data
+    const newArray = [...this.data];
+
+    // Run the callback function on each element of the copied array
+    for (let i = 0; i < newArray.length - 1; i++) {
+      callBackFn(newArray[i]);
+    }
+
+    return newArray;
   }
 
   // Add an element to the end of the array
@@ -63,15 +85,25 @@ class HomeCookedArray {
 /* ----- Testing -----  */
 
 const testArray = new HomeCookedArray(["test", "this"], 4);
-console.log("Creation test", testArray);
+console.log("--- Creation test:", testArray);
 testArray.push("another");
-console.log("Push test", testArray);
+console.log("--- Push test:", testArray);
 testArray.pop();
-console.log("Pop test", testArray);
+console.log("--- Pop test:", testArray);
 const anotherTestArray = testArray.concat(
   ["testArray1"],
   ["testArray2.1", "testArray2.2"],
   ["testArray3"]
 );
-console.log("Concat test", "Original", testArray, "Catted", anotherTestArray);
-console.log("Includes test", testArray.includes("this"));
+console.log(
+  "--- Concat test:",
+  "-Original-",
+  testArray,
+  "-Catted-",
+  anotherTestArray
+);
+console.log("--- Includes test:", testArray.includes("this"));
+console.log("--- ForEach test:");
+anotherTestArray.forEach((item) => console.log("forEach", item));
+const mappedTestArray = testArray.map((item) => console.log("map", item));
+console.log("--- Map test:", mappedTestArray);
