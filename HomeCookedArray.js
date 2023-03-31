@@ -37,6 +37,16 @@ class HomeCookedArray {
     return newArray;
   }
 
+  // Checks whether all elements in the array pass the test passed into
+  // the function, returns a boolean value
+  every(checkFn) {
+    let answer;
+    for (let i = 0; i < this.data.length; i++) {
+      answer = checkFn(this.data[i]);
+    }
+    return answer;
+  }
+
   // Run a callback function on each element of the array
   // Returns undefined
   forEach(callBackFn) {
@@ -107,3 +117,8 @@ console.log("--- ForEach test:");
 anotherTestArray.forEach((item) => console.log("forEach", item));
 const mappedTestArray = testArray.map((item) => console.log("map", item));
 console.log("--- Map test:", mappedTestArray);
+const numbers = new HomeCookedArray([1, 30, 39, 29, 10, 13]);
+console.log(
+  "--- Every test:",
+  numbers.every((currentValue) => currentValue < 40) // true
+);
