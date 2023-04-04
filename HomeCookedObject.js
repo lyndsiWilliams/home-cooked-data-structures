@@ -1,5 +1,5 @@
 const HomeCookedObject = {
-  // Assign
+  // Copies one or more enumerable sources into a target object
   assign(target, ...sources) {
     if (sources.length > 1) {
       let targetObject = { ...target };
@@ -16,22 +16,59 @@ const HomeCookedObject = {
     return { ...prototype };
   },
 
-  // Returns an array of the passed in object's key/value pairs
+  // Transforms an object's key/value pairs into an array
   entries(object) {
-    let objectEntries = [];
+    let arrayEntries = [];
     for (let key in object) {
-      objectEntries.push([key, object[key]]);
+      arrayEntries.push([key, object[key]]);
+    }
+    return arrayEntries;
+  },
+
+  // Transforms a list of key-value pairs into an object
+  fromEntries(iterable) {
+    let objectEntries = {};
+    for (let key in iterable) {
+      objectEntries = {
+        ...objectEntries,
+        [iterable[key][0]]: iterable[key][1],
+      };
     }
     return objectEntries;
+  },
+
+  // Checks if a property is in an object, returns boolean answer
+  hasOwn(object, property) {
+    return property in object;
+  },
+
+  // Returns an array of a given object's property names
+  keys(object) {
+    let propertyNames = [];
+    for (key in object) {
+      propertyNames.push(key);
+    }
+    return propertyNames;
+  },
+
+  // Returns an array of a given object's values
+  values(object) {
+    let values = [];
+    for (key in object) {
+      values.push(object[key]);
+    }
+    return values;
   },
 };
 
 const testObject = HomeCookedObject.create({ test1: 1, test2: 2 });
 const anotherTestObject = HomeCookedObject.create({ test3: 3, test4: 4 });
 const yetAnotherTestObject = HomeCookedObject.create({ test5: 5, test6: 6 });
-// console.log(testObject);
-// console.log(HomeCookedObject.entries(testObject));
-console.log(
-  HomeCookedObject.assign(testObject, anotherTestObject, yetAnotherTestObject)
-);
-console.log(Object.assign(testObject, anotherTestObject, yetAnotherTestObject));
+console.log("---", testObject);
+const homeCookedEntries = HomeCookedObject.entries(testObject);
+console.log("---", homeCookedEntries);
+const homeCookedfromEntries = HomeCookedObject.fromEntries(homeCookedEntries);
+console.log("---", homeCookedfromEntries);
+console.log("---", HomeCookedObject.hasOwn(homeCookedfromEntries, "test1"));
+console.log(HomeCookedObject.keys(testObject));
+console.log(HomeCookedObject.values(testObject));
