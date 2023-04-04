@@ -1,4 +1,4 @@
-export default class HomeCookedArray {
+class HomeCookedArray {
   constructor(elements, length) {
     this.data = elements || [];
     this.length = length || this.data.length || 0;
@@ -97,14 +97,6 @@ export default class HomeCookedArray {
       if (checkFn(this.data[i]) === true) return i;
     }
     return -1;
-  }
-
-  flat() {
-    for (let i = 0; i < this.length; i++) {
-      const stringyData = JSON.stringify(this.data[i]);
-      if (stringyData.includes("[")) console.log("array", stringyData);
-      console.log("not array", stringyData);
-    }
   }
 
   // Run a callback function on each element of the array, returns undefined
