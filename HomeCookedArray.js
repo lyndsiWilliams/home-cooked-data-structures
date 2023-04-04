@@ -1,4 +1,4 @@
-class HomeCookedArray {
+export default class HomeCookedArray {
   constructor(elements, length) {
     this.data = elements || [];
     this.length = length || this.data.length || 0;
