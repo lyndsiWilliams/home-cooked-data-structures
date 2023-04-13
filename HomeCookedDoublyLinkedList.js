@@ -9,11 +9,12 @@
 class Node {
   constructor(value) {
     this.value = value;
+    this.prev = null;
     this.next = null;
   }
 }
 
-class HomeCookedLinkedList {
+class HomeCookedDoublyLinkedList {
   constructor(value, ...moreValues) {
     this.head = new Node(value);
 
@@ -39,25 +40,34 @@ class HomeCookedLinkedList {
   }
 
   // Add a new node to the end of the linked list
-  append(value) {
+  append(value, ...moreValues) {
     const newNode = new Node(value);
 
+    newNode.prev = this.tail;
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
 
-    return this;
+    if (moreValues) {
+      for (let i = 0; i < moreValues.length; i++) this.append(moreValues[i]);
+    }
+    return this.printList();
   }
 
   // Add a new node to the beginning of the linked list
-  prepend(value) {
+  prepend(value, ...moreValues) {
     const newNode = new Node(value);
 
+    this.head.prev = newNode;
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
 
-    return this;
+    if (moreValues) {
+      for (let i = 0; i < moreValues.length; i++) this.prepend(moreValues[i]);
+    }
+
+    return this.printList();
   }
 
   // Traverse to a specified index
@@ -92,6 +102,9 @@ class HomeCookedLinkedList {
     leaderNode.next = newNode;
     // Set new node's next to the node after
     newNode.next = nextNode;
+    // Reassign the prev of newNode and prevNode
+    newNode.prev = leaderNode;
+    nextNode.prev = newNode;
     this.length++;
 
     return this.printList();
@@ -102,21 +115,41 @@ class HomeCookedLinkedList {
     const nextNode = this.traverseToIndex(index + 1);
 
     previousNode.next = nextNode;
+    nextNode.prev = previousNode;
     this.length--;
+
+    return this.printList();
+  }
+
+  reverse() {
+    if (!this.head.next) return this.head;
+
+    let first = this.head;
+
+    this.tail = this.head;
+
+    let second = first.next;
+
+    while (second) {
+      const temp = second.next;
+
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+
+    this.head.next = null;
+    this.head = first;
 
     return this.printList();
   }
 }
 
-const linkedList = new HomeCookedLinkedList(10);
-console.log("Create -", linkedList);
-linkedList.append(5);
-console.log("Append-1 -", linkedList);
-linkedList.append(16);
-console.log("Append-2 -", linkedList);
-linkedList.prepend(1);
-console.log("Prepend -", linkedList);
-linkedList.insert(2, 42);
-console.log("Insert -", linkedList);
-linkedList.remove(2);
-console.log("Remove -", linkedList);
+const doublyLinkedList = new HomeCookedDoublyLinkedList(42);
+doublyLinkedList.printList();
+doublyLinkedList.append(43);
+doublyLinkedList.prepend(41);
+doublyLinkedList.insert(2, 42.5);
+doublyLinkedList.remove(2);
+doublyLinkedList.reverse();
+console.log(doublyLinkedList);
