@@ -56,7 +56,6 @@ class HomeCookedLinkedList {
 
   // Traverse to a specified index
   traverseToIndex(index) {
-    // check params
     let counter = 0;
     let currentNode = this.head;
 
@@ -70,7 +69,7 @@ class HomeCookedLinkedList {
 
   // Insert a new node at a specified index
   insert(index, value) {
-    // check params
+    // If index >= length, add to the end
     if (index >= this.length) {
       return this.append(value);
     }
@@ -92,7 +91,15 @@ class HomeCookedLinkedList {
     return this.printList();
   }
 
-  remove(value) {}
+  remove(index) {
+    const previousNode = this.traverseToIndex(index - 1);
+    const nextNode = this.traverseToIndex(index + 1);
+
+    previousNode.next = nextNode;
+    this.length--;
+
+    return this.printList();
+  }
 }
 
 const linkedList = new HomeCookedLinkedList(10);
@@ -105,4 +112,4 @@ linkedList.prepend(1);
 console.log("fourth", linkedList);
 linkedList.insert(2, 42);
 console.log("fifth", linkedList);
-linkedList.printList();
+console.log(linkedList.remove(2));
