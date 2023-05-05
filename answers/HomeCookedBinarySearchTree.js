@@ -60,6 +60,7 @@ class HomeCookedBinarySearchTree {
     return null;
   }
 
+  // Remove a node
   remove(value) {
     if (!this.root) return false;
 
