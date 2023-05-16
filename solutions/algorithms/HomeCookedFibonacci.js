@@ -14,5 +14,4 @@ function fibonacciRecursive(n) {
   return n < 2 ? n : fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 }
 
-console.log(fibonacciIterative(6));
-console.log(fibonacciRecursive(6));
+module.exports = { fibonacciIterative, fibonacciRecursive };
