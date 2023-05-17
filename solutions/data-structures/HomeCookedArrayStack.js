@@ -12,7 +12,6 @@ class HomeCookedArrayStack {
 
   // Returns the top element
   peek() {
-    console.log("Peek -", this.array[this.array.length - 1]);
     return this.array[this.array.length - 1];
   }
 
@@ -20,7 +19,6 @@ class HomeCookedArrayStack {
   push(value) {
     this.array.push(value);
 
-    console.log("Push -", this.array);
     return this.array;
   }
 
@@ -28,23 +26,13 @@ class HomeCookedArrayStack {
   pop() {
     this.array.pop();
 
-    console.log("Pop -", this.array);
     return this.array;
   }
 
   // Check if the stack is empty
   isEmpty() {
-    console.log("isEmpty -", !this.array.length);
     return !this.array.length;
   }
 }
 
-const testArrayStack = new HomeCookedArrayStack();
-testArrayStack.isEmpty();
-testArrayStack.push(42);
-testArrayStack.push(43);
-testArrayStack.push(44);
-testArrayStack.pop();
-testArrayStack.isEmpty();
-console.log(testArrayStack);
-testArrayStack.peek();
+module.exports = HomeCookedArrayStack;

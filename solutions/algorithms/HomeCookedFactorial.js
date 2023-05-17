@@ -12,5 +12,4 @@ function findFactorialIterative(number) {
   return number <= 2 ? number : answer;
 }
 
-console.log(findFactorialIterative(5));
-console.log(findFactorialRecursive(5));
+module.exports = { findFactorialIterative, findFactorialRecursive };

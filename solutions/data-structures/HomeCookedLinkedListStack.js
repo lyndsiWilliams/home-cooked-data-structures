@@ -21,7 +21,6 @@ class HomeCookedLinkedListStack {
 
   // Returns the top node
   peek() {
-    console.log("Peek -", this.top);
     return this.top;
   }
 
@@ -40,7 +39,6 @@ class HomeCookedLinkedListStack {
     }
 
     this.length++;
-    console.log("Push -", this);
     return this;
   }
 
@@ -55,24 +53,13 @@ class HomeCookedLinkedListStack {
     this.top = this.top.next;
     this.length--;
 
-    console.log("Pop -", removedNode);
     return removedNode;
   }
 
   // Check if the stack is empty
   isEmpty() {
-    console.log("isEmpty -", !this.length);
     return !this.length;
   }
 }
 
-const testStack = new HomeCookedLinkedListStack();
-
-testStack.isEmpty();
-testStack.push(42);
-testStack.push(43);
-testStack.push(44);
-testStack.pop();
-console.log(testStack);
-testStack.peek();
-testStack.isEmpty();
+module.exports = HomeCookedLinkedListStack;
