@@ -1,11 +1,8 @@
-const exampleBST = require("../helpers");
-const mockBSTfunctions = require("../../data-structures/HomeCookedBinarySearchTree");
+const BSTconstants = require("../helpers");
 
-const { HomeCookedBinarySearchTree, traverse } = mockBSTfunctions;
+const { traverse, testBST, exampleBST } = BSTconstants;
 
 describe("HomeCookedBinarySearchTree", () => {
-  const testBST = new HomeCookedBinarySearchTree();
-
   test("builds a BST with insert()", () => {
     testBST.insert(9);
     testBST.insert(4);

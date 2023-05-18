@@ -94,7 +94,7 @@ class HomeCookedLinkedList {
     newNode.next = nextNode;
     this.length++;
 
-    return this.printList();
+    return this;
   }
 
   remove(index) {
@@ -104,19 +104,8 @@ class HomeCookedLinkedList {
     previousNode.next = nextNode;
     this.length--;
 
-    return this.printList();
+    return this;
   }
 }
 
-const linkedList = new HomeCookedLinkedList(10);
-console.log("Create -", linkedList);
-linkedList.append(5);
-console.log("Append-1 -", linkedList);
-linkedList.append(16);
-console.log("Append-2 -", linkedList);
-linkedList.prepend(1);
-console.log("Prepend -", linkedList);
-linkedList.insert(2, 42);
-console.log("Insert -", linkedList);
-linkedList.remove(2);
-console.log("Remove -", linkedList);
+module.exports = HomeCookedLinkedList;

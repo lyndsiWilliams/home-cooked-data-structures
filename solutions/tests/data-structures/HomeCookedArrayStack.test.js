@@ -1,10 +1,9 @@
-const mockHomeCookedArrayStack = require("../../data-structures/HomeCookedArrayStack");
+const testArrayStackConstants = require("../helpers");
+
+const { testHomeCookedArrayStack } = testArrayStackConstants;
+const { array } = testHomeCookedArrayStack;
 
 describe("HomeCookedArrayStack", () => {
-  const testHomeCookedArrayStack = new mockHomeCookedArrayStack();
-
-  const { array } = testHomeCookedArrayStack;
-
   test("adds 3 nodes", () => {
     // Add top node
     expect(array.length).toBe(0);

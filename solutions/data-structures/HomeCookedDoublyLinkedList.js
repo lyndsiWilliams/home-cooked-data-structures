@@ -51,7 +51,7 @@ class HomeCookedDoublyLinkedList {
     if (moreValues) {
       for (let i = 0; i < moreValues.length; i++) this.append(moreValues[i]);
     }
-    return this.printList();
+    return this;
   }
 
   // Add a new node to the beginning of the linked list
@@ -67,7 +67,7 @@ class HomeCookedDoublyLinkedList {
       for (let i = 0; i < moreValues.length; i++) this.prepend(moreValues[i]);
     }
 
-    return this.printList();
+    return this;
   }
 
   // Traverse to a specified index
@@ -107,7 +107,7 @@ class HomeCookedDoublyLinkedList {
     nextNode.prev = newNode;
     this.length++;
 
-    return this.printList();
+    return this;
   }
 
   remove(index) {
@@ -118,7 +118,7 @@ class HomeCookedDoublyLinkedList {
     nextNode.prev = previousNode;
     this.length--;
 
-    return this.printList();
+    return this;
   }
 
   reverse() {
@@ -141,15 +141,8 @@ class HomeCookedDoublyLinkedList {
     this.head.next = null;
     this.head = first;
 
-    return this.printList();
+    return this;
   }
 }
 
-const doublyLinkedList = new HomeCookedDoublyLinkedList(42);
-doublyLinkedList.printList();
-doublyLinkedList.append(43);
-doublyLinkedList.prepend(41);
-doublyLinkedList.insert(2, 42.5);
-doublyLinkedList.remove(2);
-doublyLinkedList.reverse();
-console.log(doublyLinkedList);
+module.exports = HomeCookedDoublyLinkedList;

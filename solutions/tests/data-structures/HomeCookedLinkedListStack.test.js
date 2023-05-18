@@ -1,8 +1,8 @@
-const mockHomeCookedLinkedListStack = require("../../data-structures/HomeCookedLinkedListStack");
+const LLstackConstants = require("../helpers");
+
+const { testLinkedListStack } = LLstackConstants;
 
 describe("HomeCookedLinkedListStack", () => {
-  const testLinkedListStack = new mockHomeCookedLinkedListStack();
-
   test("adds 3 nodes", () => {
     // Add top node
     expect(testLinkedListStack.length).toBe(0);

@@ -101,7 +101,7 @@ class HomeCookedArray {
 
   // Run a callback function on each element of the array, returns undefined
   forEach(callBackFn) {
-    for (let i = 0; i < this.length - 1; i++) {
+    for (let i = 0; i < this.length; i++) {
       callBackFn(this.data[i]);
     }
   }
@@ -121,7 +121,7 @@ class HomeCookedArray {
     const newArray = [...this.data];
 
     // Run the callback function on each element of the copied array
-    for (let i = 0; i < newArray.length - 1; i++) {
+    for (let i = 0; i < newArray.length; i++) {
       callBackFn(newArray[i]);
     }
 
@@ -143,52 +143,4 @@ class HomeCookedArray {
   }
 }
 
-/* ----- Testing -----  */
-
-const testArray = new HomeCookedArray(["test", "this"], 4);
-console.log("--- Creation test:", testArray);
-testArray.push("another");
-console.log("--- Push test:", testArray);
-testArray.pop();
-console.log("--- Pop test:", testArray);
-const anotherTestArray = testArray.concat(
-  ["testArray1"],
-  ["testArray2.1", "testArray2.2"],
-  ["testArray3"]
-);
-console.log(
-  "--- Concat test:",
-  "-Original-",
-  testArray,
-  "-Catted-",
-  anotherTestArray
-);
-console.log("--- Includes test:", testArray.includes("this"));
-console.log("--- ForEach test:");
-anotherTestArray.forEach((item) => console.log("forEach", item));
-const mappedTestArray = testArray.map((item) => console.log("map", item));
-console.log("--- Map test:", mappedTestArray);
-const numbers = new HomeCookedArray([1, 30, 39, 29, 10, 13]);
-console.log(
-  "--- Every test:",
-  numbers.every((currentValue) => currentValue < 40) // true
-);
-console.log("--- Fill test", numbers.fill(6, 2, 4));
-console.log(
-  "--- Find test",
-  numbers.find((element) => element > 10)
-);
-console.log(
-  "--- FindIndex test",
-  numbers.findIndex((element) => element > 10)
-);
-console.log(
-  "--- FindLast test",
-  numbers.findLast((element) => element > 10)
-);
-console.log(
-  "--- FindLastIndex test",
-  numbers.findLastIndex((element) => element > 10)
-);
-const notFlatNumbers = new HomeCookedArray([1, 2, [3, 4]]);
-console.log(notFlatNumbers.flat());
+module.exports = HomeCookedArray;

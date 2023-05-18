@@ -61,14 +61,4 @@ const HomeCookedObject = {
   },
 };
 
-const testObject = HomeCookedObject.create({ test1: 1, test2: 2 });
-const anotherTestObject = HomeCookedObject.create({ test3: 3, test4: 4 });
-const yetAnotherTestObject = HomeCookedObject.create({ test5: 5, test6: 6 });
-console.log("---", testObject);
-const homeCookedEntries = HomeCookedObject.entries(testObject);
-console.log("---", homeCookedEntries);
-const homeCookedfromEntries = HomeCookedObject.fromEntries(homeCookedEntries);
-console.log("---", homeCookedfromEntries);
-console.log("---", HomeCookedObject.hasOwn(homeCookedfromEntries, "test1"));
-console.log(HomeCookedObject.keys(testObject));
-console.log(HomeCookedObject.values(testObject));
+module.exports = HomeCookedObject;

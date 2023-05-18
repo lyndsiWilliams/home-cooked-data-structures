@@ -1,8 +1,8 @@
-const mockHomeCookedQueue = require("../../data-structures/HomeCookedQueue");
+const queueConstants = require("../helpers");
+
+const { testQueue } = queueConstants;
 
 describe("HomeCookedQueue", () => {
-  const testQueue = new mockHomeCookedQueue();
-
   test("adds 3 nodes", () => {
     // Add first node
     expect(testQueue.length).toBe(0);
