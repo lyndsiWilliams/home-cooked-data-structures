@@ -21,14 +21,4 @@ const PracticeObject = {
   values(object) {},
 };
 
-const testObject = PracticeObject.create({ test1: 1, test2: 2 });
-const anotherTestObject = PracticeObject.create({ test3: 3, test4: 4 });
-const yetAnotherTestObject = PracticeObject.create({ test5: 5, test6: 6 });
-console.log("---", testObject);
-const practiceEntries = PracticeObject.entries(testObject);
-console.log("---", practiceEntries);
-const practicefromEntries = PracticeObject.fromEntries(practiceEntries);
-console.log("---", practicefromEntries);
-console.log("---", PracticeObject.hasOwn(practicefromEntries, "test1"));
-console.log(PracticeObject.keys(testObject));
-console.log(PracticeObject.values(testObject));
+module.exports = PracticeObject;

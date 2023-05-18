@@ -32,10 +32,4 @@ class PracticeQueue {
   isEmpty() {}
 }
 
-const testQueue = new PracticeQueue();
-testQueue.enqueue(42);
-testQueue.enqueue(43);
-testQueue.enqueue(44);
-testQueue.dequeue();
-testQueue.isEmpty();
-testQueue.peek();
+module.exports = PracticeQueue;

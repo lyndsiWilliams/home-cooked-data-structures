@@ -32,13 +32,4 @@ class PracticeLinkedListStack {
   isEmpty() {}
 }
 
-const testStack = new PracticeLinkedListStack();
-
-testStack.isEmpty();
-testStack.push(42);
-testStack.push(43);
-testStack.push(44);
-testStack.pop();
-console.log(testStack);
-testStack.peek();
-testStack.isEmpty();
+module.exports = PracticeLinkedListStack;

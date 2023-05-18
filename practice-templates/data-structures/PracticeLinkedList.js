@@ -13,7 +13,7 @@ class Node {
   }
 }
 
-class HomeCookedLinkedList {
+class PracticeLinkedList {
   constructor(value, ...moreValues) {
     this.head = new Node(value);
 
@@ -60,15 +60,4 @@ class HomeCookedLinkedList {
   remove(index) {}
 }
 
-const linkedList = new HomeCookedLinkedList(10);
-console.log("Create -", linkedList);
-linkedList.append(5);
-console.log("Append-1 -", linkedList);
-linkedList.append(16);
-console.log("Append-2 -", linkedList);
-linkedList.prepend(1);
-console.log("Prepend -", linkedList);
-linkedList.insert(2, 42);
-console.log("Insert -", linkedList);
-linkedList.remove(2);
-console.log("Remove -", linkedList);
+module.exports = PracticeLinkedList;

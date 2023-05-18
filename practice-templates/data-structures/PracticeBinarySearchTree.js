@@ -36,17 +36,4 @@ const traverse = (node) => {
   return tree;
 };
 
-const testBST = new PracticeBinarySearchTree();
-console.log("Lookup -", testBST.lookup(201));
-testBST.insert(9);
-testBST.insert(4);
-testBST.insert(6);
-testBST.insert(20);
-testBST.insert(170);
-testBST.insert(15);
-testBST.insert(1);
-
-console.log("Lookup -", testBST.lookup(20));
-testBST.remove(9);
-
-console.log(traverse(testBST.root));
+module.exports = { PracticeBinarySearchTree, traverse };

@@ -64,11 +64,4 @@ class PracticeDoublyLinkedList {
   reverse() {}
 }
 
-const doublyLinkedList = new PracticeDoublyLinkedList(42);
-doublyLinkedList.printList();
-doublyLinkedList.append(43);
-doublyLinkedList.prepend(41);
-doublyLinkedList.insert(2, 42.5);
-doublyLinkedList.remove(2);
-doublyLinkedList.reverse();
-console.log(doublyLinkedList);
+module.exports = PracticeDoublyLinkedList;

@@ -23,12 +23,4 @@ class PracticeArrayStack {
   isEmpty() {}
 }
 
-const testArrayStack = new PracticeArrayStack();
-testArrayStack.isEmpty();
-testArrayStack.push(42);
-testArrayStack.push(43);
-testArrayStack.push(44);
-testArrayStack.pop();
-testArrayStack.isEmpty();
-console.log(testArrayStack);
-testArrayStack.peek();
+module.exports = PracticeArrayStack;
